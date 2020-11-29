@@ -8,12 +8,14 @@ class Node():
 
 class MyQueue():
     """Очередь. Нужно указать ссылку на голову."""
-    def __init__(self, head):
-        self.head = head
-        self.head = Node(head, "")
+    def __init__(self):
+        self.head = ""
         # print("Очередь, в голове которой находится элемент \"" + self.head.contained_object + "\", создана!")
 
     def add(self, new_node):
+        if self.head == "":
+            self.head = Node(new_node, "")
+            return
         if self.head.next_object == "":
             self.head.next_object = Node(new_node, "")
             return
@@ -39,10 +41,12 @@ class MyQueue():
         move.next_object = move.next_object.next_object
 
     def clear(self):
-        self.head.next_object = ""
+        self.head = ""
 
     def Queue_2_list(self):
         Queue_2_list = []
+        if self.head == "":
+            return Queue_2_list
         if self.head.next_object == "":
             Queue_2_list.append(self.head.contained_object)
             return Queue_2_list
@@ -54,18 +58,19 @@ class MyQueue():
         return Queue_2_list
 
 
-new_queue = MyQueue("Первый")
+new_queue = MyQueue()
+new_queue.add("Первый")
 new_queue.add("Второй")
 new_queue.add("Третий")
 new_queue.add("Четвёртый")
-# new_queue.add("5")
+new_queue.add("5")
 
 # print("This is 2nd object: " + str(new_queue.head.next_object.contained_object))
 print(new_queue.Queue_2_list())
-
-new_queue.remove("5")
+#
+new_queue.remove("Первый")
 print(new_queue.Queue_2_list())
-
+#
 new_queue.clear()
 print(new_queue.Queue_2_list())
 
