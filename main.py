@@ -1,16 +1,12 @@
 class Node():
-    """Узел очереди."""
     def __init__(self, contained_object, next_object):
-        """Конструктор: ссылки на содержащийся объект и последующий элементы."""
         self.contained_object = contained_object
         self.next_object = next_object
-        # print("Узел " + self.contained_object.title() + " создан!")
+
 
 class MyQueue():
-    """Очередь. Нужно указать ссылку на голову."""
     def __init__(self):
         self.head = ""
-        # print("Очередь, в голове которой находится элемент \"" + self.head.contained_object + "\", создана!")
 
     def add(self, new_node):
         if self.head == "":
@@ -57,6 +53,7 @@ class MyQueue():
         Queue_2_list.append(move.contained_object)
         return Queue_2_list
 
+
 class Country():
     def __init__(self, population, capital, language):
         self.population = population
@@ -64,28 +61,38 @@ class Country():
         self.language = language
 
     def __str__(self):
-        return 'Country( \n    population: '+str(self.population)+',\n    capital: '+self.capital+',\n    language: '+self.language+'\n)'
+        return 'Country( \n    population: '+str(self.population)+',\n    capital: '+self.capital+',\n    language: '+self.language+'\n)\n'
 
 
+# Countries
 Russia = Country(144000000, "Moscow", "Ru")
-print(Russia)
+Finland = Country(5570000, "Helsinki", "Finnish")
+Australia = Country(25200000, "Canberra", "Australian English")
 
-# new_queue = MyQueue()
-# new_queue.add("Первый")
-# new_queue.add("Второй")
-# new_queue.add("Третий")
-# new_queue.add("Четвёртый")
-# new_queue.add("5")
-#
-# # print("This is 2nd object: " + str(new_queue.head.next_object.contained_object))
-# print(new_queue.Queue_2_list())
-# #
-# new_queue.remove("Первый")
-# print(new_queue.Queue_2_list())
-# #
-# new_queue.clear()
-# print(new_queue.Queue_2_list())
+countries = MyQueue()
+countries.add(Russia)
+countries.add(Finland)
+countries.add(Australia)
 
-# print("")
-# print(new_queue.head.contained_object)
-# print(new_queue.head.next_object)
+# Вывод в виде очереди
+move = countries.head
+print(move.contained_object)
+while move.next_object != "":
+    move = move.next_object
+    print(move.contained_object)
+
+# Numbers
+
+numbers = MyQueue()
+numbers.add(0)
+numbers.add(1)
+numbers.add(2)
+numbers.add(3)
+numbers.add(4)
+
+# Вывод в виде очереди
+move = numbers.head
+print(move.contained_object)
+while move.next_object != "":
+    move = move.next_object
+    print(move.contained_object)
