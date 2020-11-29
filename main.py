@@ -57,22 +57,34 @@ class MyQueue():
         Queue_2_list.append(move.contained_object)
         return Queue_2_list
 
+class Country():
+    def __init__(self, population, capital, language):
+        self.population = population
+        self.capital = capital
+        self.language = language
 
-new_queue = MyQueue()
-new_queue.add("Первый")
-new_queue.add("Второй")
-new_queue.add("Третий")
-new_queue.add("Четвёртый")
-new_queue.add("5")
+    def __str__(self):
+        return 'Country( \n    population: '+str(self.population)+',\n    capital: '+self.capital+',\n    language: '+self.language+'\n)'
 
-# print("This is 2nd object: " + str(new_queue.head.next_object.contained_object))
-print(new_queue.Queue_2_list())
+
+Russia = Country(144000000, "Moscow", "Ru")
+print(Russia)
+
+# new_queue = MyQueue()
+# new_queue.add("Первый")
+# new_queue.add("Второй")
+# new_queue.add("Третий")
+# new_queue.add("Четвёртый")
+# new_queue.add("5")
 #
-new_queue.remove("Первый")
-print(new_queue.Queue_2_list())
-#
-new_queue.clear()
-print(new_queue.Queue_2_list())
+# # print("This is 2nd object: " + str(new_queue.head.next_object.contained_object))
+# print(new_queue.Queue_2_list())
+# #
+# new_queue.remove("Первый")
+# print(new_queue.Queue_2_list())
+# #
+# new_queue.clear()
+# print(new_queue.Queue_2_list())
 
 # print("")
 # print(new_queue.head.contained_object)
